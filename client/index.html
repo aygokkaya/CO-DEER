@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CO-DEER | Ayg Labs</title>
+</head>
+<body>
+    <h1>CO-DEER Live Test</h1>
+    <div id="status">Sunucuya bağlanılıyor...</div>
+
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script>
+        const socket = io("http://localhost:3001");
+        const statusDiv = document.getElementById("status");
+
+        socket.on("connect", () => {
+            statusDiv.innerText = "Bağlantı Başarılı! ID: " + socket.id;
+            statusDiv.style.color = "green";
+        });
+    </script>
+</body>
+</html>
